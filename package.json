@@ -2,7 +2,8 @@
   "name": "ng-aot",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "build:prod": "webpack --config webpack.config.js --env.MODE=prod"
   },
   "dependencies": {
     "@angular/common": "^2.1.1",
