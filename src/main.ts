@@ -1,3 +1,4 @@
+/* polyfills */
 import 'core-js/shim';
 import 'zone.js/dist/zone';
 

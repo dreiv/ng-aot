@@ -1,13 +1,14 @@
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = (envOptions) => {
     envOptions = envOptions || {};
     const config = {
         entry: {
-        main: './src/main.ts'
-    },
+            main: './src/main.ts'
+        },
         output: {
-            path: './dist',
+            path: root('dist'),
             filename: '[name].bundle.js',
         },
         resolve: {
@@ -42,3 +43,9 @@ module.exports = (envOptions) => {
 
     return config;
 };
+
+// Helpers
+function root(args) {
+    args = Array.prototype.slice.call(arguments, 0);
+    return path.join.apply(path, [__dirname].concat(args));
+}
