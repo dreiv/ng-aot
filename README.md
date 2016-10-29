@@ -1,5 +1,5 @@
 #[**ng with ahead-of-time compilation**](https://dreiv.github.io/ng-aot/)
-[![Dependency Status](https://david-dm.org/ng-aot/dev-status.svg)](https://david-dm.org/ng-aot/dev-status)
+[![Dependency Status](https://david-dm.org/dreiv/ng-aot.svg)](https://david-dm.org/dreiv/ng-aot)
 [![devDependency Status](https://david-dm.org/dreiv/ng-aot/dev-status.svg)](https://david-dm.org/dreiv/ng-aot?type=dev)
 
 Demo application done in  [**angular**](https://angular.io/) and bundled with  [**webpack**](https://webpack.github.io/), featuring [**Ahead-of-Time**](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html) compilation, inspired by [**this**](https://medium.com/@laco0416/aot-compilation-with-webpack-359ac9f4916f#.5iy3l54rp) post.
