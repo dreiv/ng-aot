@@ -12,5 +12,5 @@ To start the example you must have [**node**](https://nodejs.org/en/download/) i
 To start the application in [**Ahead-of-Time**](https://angular.io/docs/ts/latest/cookbook/aot-compiler.html) mode do the following:
 
     1.) npm install (if you haven't already done it)
-    2.) npm start:aor
+    2.) npm run start:aot
     3.) access the app at: http://locallhost:1337
