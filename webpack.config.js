@@ -11,8 +11,8 @@ module.exports = (envOptions) => {
             filename: '[name].bundle.js'
         },
         resolve: {extensions: ['.ts', '.js', '.html']},
-        module: {test: /\.(html|css)$/, loader: 'raw'},
-        devtool: envOptions.MODE === 'prod' ? null : '#source-map'
+        module: {rules: [{test: /\.(html|css)$/, loader: 'raw'}]},
+        devtool: envOptions.MODE === 'prod' ? false : '#source-map'
     };
 
     if (envOptions.MODE === 'prod') {
