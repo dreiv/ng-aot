@@ -5,29 +5,18 @@ const AotPlugin = require('@ngtools/webpack').AotPlugin;
 module.exports = (envOptions) => {
     envOptions = envOptions || {};
     const config = {
-        entry: {
-            main: './src/main.ts'
-        },
+        entry: {main: './src/main.ts'},
         output: {
             path: root('dist'),
-            filename: '[name].bundle.js',
+            filename: '[name].bundle.js'
         },
-        resolve: {
-            extensions: ['.ts', '.js', '.html'],
-        },
-        module: {
-            rules: [
-                {test: /\.html$/, loader: 'raw'},
-                {test: /\.css$/, loader: 'raw'},
-            ]
-        },
-        devtool: '#source-map'
+        resolve: {extensions: ['.ts', '.js', '.html']},
+        module: {test: /\.(html|css)$/, loader: 'raw'},
+        devtool: envOptions.MODE === 'prod' ? null : '#source-map'
     };
 
     if (envOptions.MODE === 'prod') {
-        config.module.rules.push(
-            {test: /\.ts$/, loaders: ['@ngtools/webpack']}
-        );
+        config.module.rules.push({test: /\.ts$/, loaders: ['@ngtools/webpack']});
         config.plugins = [
             new AotPlugin({
                 tsConfigPath: './tsconfig.json',
@@ -47,15 +36,12 @@ module.exports = (envOptions) => {
             }),
         ];
     } else {
-        config.module.rules.push(
-            {test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader']}
-        );
+        config.module.rules.push({test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader']});
     }
 
     return config;
 };
 
-// Helpers
 function root(args) {
     args = Array.prototype.slice.call(arguments, 0);
     return path.join.apply(path, [__dirname].concat(args));

@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "build": "rimraf dist && webpack --config webpack.config.js",
-    "build:prod": "rimraf dist && webpack --config webpack.config.js --env.MODE=prod",
-    "start": "npm run build && webpack-dev-server --inline --progress --port 1336",
-    "start:prod": "npm run build:prod && webpack-dev-server --inline --progress --port 1337"
+    "build:aot": "rimraf dist && webpack --config webpack.config.js --env.MODE=prod",
+    "start": "npm run build && webpack-dev-server --inline --progress --port 1330",
+    "start:aot": "npm run build:prod && webpack-dev-server --inline --progress --port 1337"
   },
   "dependencies": {
     "@angular/common": "^2.1.1",
