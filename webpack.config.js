@@ -24,15 +24,13 @@ module.exports = (envOptions) => {
             }),
             new webpack.optimize.UglifyJsPlugin({
                 beautify: false,
-                mangle: {
-                    screw_ie8: true,
-                    keep_fnames: true
-                },
+                comments: false,
                 compress: {
                     warnings: false,
-                    screw_ie8: true
+                    screw_ie8: true,
+                    drop_console: true
                 },
-                comments: false
+                minimize: true
             }),
         ];
     } else {
