@@ -12,12 +12,19 @@ module.exports = (envOptions) => {
         },
         resolve: {extensions: ['.ts', '.js', '.html']},
         module: {rules: [{test: /\.(html|css)$/, loader: 'raw'}]},
+        plugins: [
+            new webpack.ContextReplacementPlugin(
+                // The (\\|\/) piece accounts for path separators in *nix and Windows
+                /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+                root('./src') // Location of your source code.
+            )
+        ],
         devtool: envOptions.MODE === 'prod' ? false : '#source-map'
     };
 
     if (envOptions.MODE === 'prod') {
         config.module.rules.push({test: /\.ts$/, loaders: ['@ngtools/webpack']});
-        config.plugins = [
+        config.plugins.push(
             new AotPlugin({
                 tsConfigPath: './tsconfig.json',
                 entryModule: 'src/app/app.module#AppModule'
@@ -31,8 +38,8 @@ module.exports = (envOptions) => {
                     drop_console: true
                 },
                 minimize: true
-            }),
-        ];
+            })
+        );
     } else {
         config.module.rules.push({test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader']});
     }
